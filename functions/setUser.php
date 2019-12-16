@@ -40,7 +40,7 @@ else if (["$password"] === ["$confirm_password"]) {
 }
 else{
     echo "Les mots de passe ne correspondent pas ";
-    header("Location: ../register.php?ErrorMessage3=Les mots de passe ne correspondent pas")
+    header("Location: ../register.php?ErrorMessage3=Les mots de passe ne correspondent pas");
 }
 
 
