@@ -23,6 +23,11 @@
                 echo $_GET["ErrorMessage2"];
                 echo "</div>";
             }
+
+            else if(isset($_GET["ErrorMessage3"])){
+                echo $_GET["ErrorMessage3"];
+                echo "</div>";
+            }
         ?> 
     </div>
 </body>

@@ -32,11 +32,15 @@ if( empty($password) || empty($pseudo) || empty($email) || empty($confirm_passwo
 }
 
 /******* Si password ne sont pas les mêmes ******/
-else if (($password) !== ($confirm_password)) {
+else if (["$password"] === ["$confirm_password"]) {
 /******* Message d'erreur ******/
-    echo "Les mots de passe ne correspondent pas";
-    header("Location: ../register.php?ErrorMessage2=Les mots de passe ne correspondent pas");
+    echo "Les mots de passe correspondent ";
+    header("Location: ../register.php?ErrorMessage2=Les mots de passe correspondent ");
     $redirect = true;
+}
+else{
+    echo "Les mots de passe ne correspondent pas ";
+    header("Location: ../register.php?ErrorMessage3=Les mots de passe ne correspondent pas");
 
 }
 
