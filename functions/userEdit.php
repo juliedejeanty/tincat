@@ -12,7 +12,7 @@
 
 
     if(isset($_POST['newpseudo']) AND empty($_POST['newpseudo']) AND ($_POST['newpseudo'] != ['pseudo'])){
-        $req = $bd->prepare("UPDATE users SET pseudo = ($_POST["newpseudo"]) WHERE id =id");
+        $req = $bd->prepare("UPDATE users SET pseudo =  ? WHERE id =?");
     }
 
     // execute
