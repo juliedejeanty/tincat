@@ -44,7 +44,7 @@
             <div class="pseudo">
                 <strong> <?php echo $result["pseudo"]; ?> </strong>
                 <!----redirige vers une page UserEditForm avec un formulaire--->
-                <button class="edit"> <a href="userEditForm.php?pseudo=<?php echo $result["pseudo"]?>">EDITER</button>
+                <button class="edit"> <a href="userEditForm.php?pseudo=<?php echo $result["pseudo"]?> id=<?php echo $result["id"]?>">EDITER</button>
                 <button class="delete"> <a href="functions/deleteUser.php?user_id=<?php echo $result["id"]?>">SUPPRIMER</button>
             </div>
         </div>
@@ -52,9 +52,17 @@
     }   
     ?>
 
+
     
     <a  class="disconnect" href ="functions/disconnect.php">Se déconnecter</a>
 
+    <div class="message2">
+            <?php 
+                if (isset($_GET["message"])){
+                    echo $_GET["message"];
+                }
+            ?>
+        </div>
 </div>
 
 
