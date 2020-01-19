@@ -1,37 +1,145 @@
-h1 {
-  color: white;
-  font-family: "Amatic SC", cursive;
+body {
+  background-image: url(../img/fond.jpg);
+  background-size: cover;
   display: flex;
-  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-body {
-  height: 100vh;
+.chats {
+  position: absolute;
+  margin-top: 12%;
+}
+
+.form {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(to left bottom, #966bd1, #bc69bf, #d46dad, #e2759c, #e8828f, #eb8488, #ec8782, #ed8a7b, #f18073, #f4766c, #f86b65, #fb5f5f);
+  margin-left: 650px;
+  background: #FFFFFF;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
+  width: 477px;
+  height: 564px;
+  margin-top: 100px;
 }
 
 form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
-input {
+p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 14px;
+  color: #E28805;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+input[type=text], input[type=password] {
   margin-bottom: 10px;
+  background: #FFFFFF;
+  box-shadow: 3px 5px 12px rgba(0, 0, 0, 0.13);
   border: none;
-  border-bottom: 2px solid white;
-  background-color: transparent;
-  padding: 5px;
-  height: 20px;
-  width: 200px;
+  width: 240px;
+  height: 31px;
+  margin-top: -10px;
+  margin-bottom: 30px;
+}
+
+input[type=submit] {
+  background: #E28805;
+  box-shadow: 3px 5px 12px rgba(0, 0, 0, 0.13);
+  width: 240px;
+  height: 42px;
+  color: white;
+  text-transform: uppercase;
+  margin-top: 20px;
+  font-size: 15px;
+  border: none;
+}
+
+form a {
+  font-size: 14px;
+  color: #E28805;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.message {
+  color: #E28805;
+  font-size: 1.3rem;
+}
+
+.hello span {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  display: flex;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  color: white;
+  margin-left: 200px;
+  margin-top: 50px;
+}
+
+.users {
+  margin-left: 200px;
+  display: flex;
+  align-content: flex-start;
+  align-items: flex-start;
+  margin-top: 50px;
+}
+
+.pseudo {
+  display: flex;
+  display: inline-flex;
+  margin-bottom: 30px;
+}
+
+.pseudo strong {
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.delete {
+  background-color: #e28805;
+  margin-left: 100px;
   color: white;
 }
 
-input::placeholder {
-  color: white;
-  font-size: 12px;
+.edit, .delete {
+  width: 240px;
+  height: 31px;
+  box-shadow: 3px 5px 12px rgba(0, 0, 0, 0.13);
+  border: none;
+  font-size: 15Px;
+  cursor: pointer;
+}
+
+.edit {
+  background: #FFFFFF;
+  color: #e28805;
+  margin-left: 200px;
+}
+
+.disconnect {
+  text-decoration: none;
+  color: #E28805;
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
+  margin-left: 1250px;
+  margin-top: auto;
 }
 
 /*# sourceMappingURL=style.css.map */

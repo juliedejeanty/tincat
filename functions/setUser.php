@@ -1,58 +1,33 @@
 <?php
-// Etape 1 : config database
-$DB_HOST = "localhost";
-$DB_NAME = "tincat";
-$DB_USER = "root";
-$DB_PASSWORD = "root";
-// Etape 2 : Connexion to database
-try {
-    $db = new PDO("mysql:host=$DB_HOST;dbname=$DB_NAME", $DB_USER, $DB_PASSWORD);
-} catch (PDOException $e) {
-    print "Erreur !: " . $e->getMessage() . "<br/>";
-    die();
+
+require("database.php");
+
+$message = "";
+if( empty($_POST["pseudo"]) && empty($_POST["password"]) ){
+    $message = "Vous devez remplir les deux champs";
+    header("Location: ../register.php?message=$message");
+} else if( empty($_POST["pseudo"]) && !empty($_POST["password"])  ){
+    $message = "Vous devez remplir un pseudo";
+    header("Location: ../register.php?message=$message");
+} else if( !empty($_POST["pseudo"]) && empty($_POST["password"]) ){
+    $message = "Vous devez remplir un password";
+    header("Location: ../register.php?message=$message");
+} 
+
+if( !empty($_POST["password"]) && !empty($_POST["confirmPassword"]) && !empty($_POST["pseudo"])){
+    if($_POST["password"] === $_POST["confirmPassword"] ){
+        var_dump($_POST);
+        $req = $db->prepare("INSERT INTO users (pseudo, password) VALUES(:pseudo, :password)");
+        $req->bindParam(":pseudo", $_POST["pseudo"]);
+        $req->bindParam(":password", $_POST["password"]);
+        $req->execute();
+        $message = "Compte créé avec succès";
+        header("Location: ../register.php?message=$message");
+        header("location:../profils.php");
+
+    }else{
+        $message = "Les mots de passe doivent être les mêmes";
+        header("Location: ../register.php?message=$message");
+        header("location:../profils.php");
+    }
 }
-var_dump($_POST);
-
-$email = $_POST["email"];
-$pseudo = $_POST["pseudo"];
-$password = $_POST["password"];
-$confirm_password = $_POST["confirm_password"];
-$redirect = $false;
-
-/******* echo " | email: " . $email . " | pseudo: " . $pseudo . " | mot de passe: " . $password ;
- ******/
-
-/******* Si champs vides ******/
-if( empty($password) || empty($pseudo) || empty($email) || empty($confirm_password) ){
-    /******* Transmettre un message d'erreur ******/
-    echo "Tous les champs ne sont remplis";
-    header("Location: ../register.php?ErrorMessage=Tous les champs ne sont pas remplis");
-    $redirect = true;
-
-}
-
-/******* Si password ne sont pas les mêmes ******/
-else if (["$password"] === ["$confirm_password"]) {
-/******* Message d'erreur ******/
-    echo "Les mots de passe correspondent ";
-    header("Location: ../register.php?ErrorMessage2=Les mots de passe correspondent ");
-    $redirect = true;
-}
-else{
-    echo "Les mots de passe ne correspondent pas ";
-    header("Location: ../register.php?ErrorMessage3=Les mots de passe ne correspondent pas");
-}
-
-
-
-// Avant d'insérer en base de données faire les vérifications suivantes
-    // Vérifier si le pseudo ou le mot de passe est vide
-    // Ajouter un input confirm password et vérifier si les deux sont égaux
-
-// Ajouter un champ email
-
-// Etape 3 : prepare request
-$req = $db->prepare("INSERT INTO users (pseudo, password) VALUES(:pseudo, :password)");
-$req->bindParam(":pseudo", $_POST["pseudo"]);
-$req->bindParam(":password", $_POST["password"]);
-$req->execute();

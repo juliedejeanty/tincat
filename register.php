@@ -1,34 +1,37 @@
 <?php require "head.php"; ?>
 
 <body>
-    <div class="form-container">
-        <h1>TINCAT</h1>
+    <div>
+        <img src="./dist/img/logo.png" alt="">
+    </div>
+
+    <div>
+        <img class="chats" src="./dist/img/welcome.png" alt="">
+    </div>
+
+    <div class="form">
         <form action="functions/setUser.php" method="post">
-            <input type="text" placeholder="pseudo" name="pseudo">
-            <input type="email" placeholder="Email" name="email">
-            <input type="password" placeholder="Mot de passe" name="password">
-            <input type="password" placeholder="Confirmez votre mot de passe" name="confirm-password">
-            <input type="submit" value="register">
+            <p>Pseudo</p>
+            <input type="text" name="pseudo">
+            <p>Mot de passe</p>
+            <input type="password" name="password">
+            <p>Confirmez votre mot de passe</p>
+            <input type="password" name="confirmPassword">
+            <input type="submit" value="S'inscrire">
+            <a href="login.php">Déjà un compte ?</a>
         </form>
     </div>
 
-    <div class="alert-box">
-        <?php
-            if(isset($_GET["ErrorMessage"])){
-                echo $_GET["ErrorMessage"];
-                echo "</div>";
+    <div class="message">
+        <?php 
+            if (isset($_GET["message"])){
+                echo $_GET["message"];
             }
-
-             else if(isset($_GET["ErrorMessage2"])){
-                echo $_GET["ErrorMessage2"];
-                echo "</div>";
-            }
-
-            else if(isset($_GET["ErrorMessage3"])){
-                echo $_GET["ErrorMessage3"];
-                echo "</div>";
-            }
-        ?> 
+        ?>
     </div>
+
+  
+
+
 </body>
 </html>
