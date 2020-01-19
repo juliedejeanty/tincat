@@ -1,25 +1,24 @@
 <?php
 
-var_dump($GET["user_id"]);
-$new_user_id = ["new_user_id"];
+    var_dump($_POST["newpseudo"]);
 
     // on se connecte à notre base
     require ("database.php");
 
 
     // lancement de la requête
-    $req = $db->prepare('SELECT * FROM users WHERE pseudo = :pseudo');
-    $req->bindParam(":id" , $_GET["user_id"]);
-    $req->bindParam(":id" , $_GET["user_id"]);
+    $req = $db->prepare("SELECT * FROM .users WHERE id=:id");
+    $req->bindParam(":id" , $_POST["newpseudo"]);
 
-   
+
+    if(isset($_POST['newpseudo']) AND empty($_POST['newpseudo']) AND ($_POST['newpseudo'] != ['pseudo'])){
+        $req = $bd->prepare("UPDATE users SET pseudo = ($_POST["newpseudo"]) WHERE id =id");
+    }
 
     // execute
-    $req->execute(array('user_id'=>$new_user_id));
-    $id=$req->fetchColumn();    
-    echo'<p>Votre profil a été modifié avec succès !</p>';
-    echo'<p>Cliquez <a href="../profils.php">ici</a> pour revenir à la page d accueil</p>';
-    var_dump ($GET["new_user_id"]);
+    $req->execute();
+    header("location:../profils.php");
+
     
 
 

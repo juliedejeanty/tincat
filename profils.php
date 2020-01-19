@@ -44,10 +44,8 @@
             <div class="pseudo">
                 <strong> <?php echo $result["pseudo"]; ?> </strong>
                 <!----redirige vers une page UserEditForm avec un formulaire--->
-                <button class="edit"> <a href="Location:../userEditForm.php?user_id=<?php echo $result["user_id"]?>">EDITER</button>
+                <button class="edit"> <a href="userEditForm.php?pseudo=<?php echo $result["pseudo"]?>">EDITER</button>
                 <button class="delete"> <a href="functions/deleteUser.php?user_id=<?php echo $result["id"]?>">SUPPRIMER</button>
-                 <!----case pseudo à remplir GET ID vers le script. Attention il faut mettre une value qui doit être égale à la valeur déjà présente select value dans la database, submit qui renvoie vers un script updateUser.php (update from where)-->
-
             </div>
         </div>
         <?php
