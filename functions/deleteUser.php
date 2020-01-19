@@ -1,6 +1,6 @@
 <?php 
 echo "delete user script";
-var_dump($_GET["id"]);
+var_dump($_GET["user_id"]);
 
 
     // on se connecte à notre base
